@@ -12,16 +12,24 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 
 export async function register(req: Request, res: Response) {
   try {
-    const { name, email, username, password, phone, referralCode } =
-      registerSchema.parse(req.body);
+    const {
+      firstName,
+      lastName,
+      email,
+      username,
+      password,
+      phone,
+      referralCode,
+    } = registerSchema.parse(req.body);
 
     const salt = await bcrypt.genSalt(10);
     const hashedPassword = await bcrypt.hash(password, salt);
 
     await prisma.user.create({
       data: {
+        firstName,
+        lastName,
         email,
-        name,
         username,
         password: hashedPassword,
         phone,
@@ -63,7 +71,7 @@ export async function login(req: Request, res: Response) {
     const JWTToken = jwt.sign(
       {
         id: existingUser.id,
-        name: existingUser.name,
+        name: existingUser.firstName,
         username: existingUser.username,
         email: existingUser.email,
         role: existingUser.role,

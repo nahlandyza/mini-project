@@ -18,7 +18,8 @@ async function seed() {
 
     const user1 = await prisma.user.create({
       data: {
-        name: "Andi Pratama",
+        firstName: "Andi",
+        lastName: "Pratama",
         username: "andiprtm",
         email: "andi.pratama@mail.com",
         password: hashedPassword,
@@ -30,7 +31,8 @@ async function seed() {
 
     const user2 = await prisma.user.create({
       data: {
-        name: "Siti Aminah",
+        firstName: "Siti",
+        lastName: "Aminah",
         username: "sitiamnh",
         email: "siti.aminah@mail.com",
         password: hashedPassword,
@@ -42,7 +44,8 @@ async function seed() {
 
     const user3 = await prisma.user.create({
       data: {
-        name: "Budi Santoso",
+        firstName: "Budi",
+        lastName: "Santoso",
         username: "budiSa",
         email: "budi.santoso@mail.com",
         password: hashedPassword,
@@ -54,7 +57,8 @@ async function seed() {
 
     const user4 = await prisma.user.create({
       data: {
-        name: "Dewi Lestari",
+        firstName: "Dewi",
+        lastName: "Lestari",
         username: "dewilstr",
         email: "dewi.lestari@mail.com",
         password: hashedPassword,

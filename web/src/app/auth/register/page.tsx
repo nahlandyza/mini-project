@@ -9,6 +9,7 @@ export default function RegisterPage() {
     phone: "",
     email: "",
     password: "",
+    referralCode: "",
     role: "",
   });
 
@@ -34,6 +35,7 @@ export default function RegisterPage() {
         phone: "",
         username: "",
         password: "",
+        referralCode: "",
         role: "",
       });
 
@@ -118,6 +120,21 @@ export default function RegisterPage() {
               onChange={(e) =>
                 setRegisterData((prev) => {
                   return { ...prev, password: e.target.value };
+                })
+              }
+            />
+          </div>
+
+          <div className="grid">
+            <label htmlFor="referralCode">Referral Code</label>
+            <input
+              className="border border-black"
+              type="text"
+              id="referralCode"
+              value={registerData.referralCode}
+              onChange={(e) =>
+                setRegisterData((prev) => {
+                  return { ...prev, referralCode: e.target.value };
                 })
               }
             />
